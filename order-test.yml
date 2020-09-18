@@ -11,3 +11,5 @@ eureka:
 spring:
   application:
     name: order #此实例注册到eureka服务端的name
+env:
+ test
