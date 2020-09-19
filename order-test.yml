@@ -35,5 +35,10 @@ management:
     web:
       exposure:
         include: "*"
+#开启服务降级
+feign:
+  hystrix:
+    enabled: true
+
 env:
  version: order服务-测试环境配置-1.0版本
