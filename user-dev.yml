@@ -25,4 +25,4 @@ management:
       exposure:
         include: "*"
 env:
- version: 用户服务-生产环境配置-1.0版本
+ version: 用户服务-生产环境配置-2.0版本
