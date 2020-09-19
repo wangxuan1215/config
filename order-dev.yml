@@ -5,6 +5,37 @@ eureka:
     prefer-ip-address: true #是否显示IP地址
     leaseRenewalIntervalInSeconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
     leaseExpirationDurationInSeconds: 30 #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+
+spring:
+  #rabbit配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#调用服务超时设置，服务提供方处理3s，Ribbon默认超时时间为1s，否则超时，需要配置等待时间
+feign:
+  client:
+    config:
+      #这里填具体的服务名称（也可以填default，表示对所有服务生效）
+      defaule:
+        #connectTimeout和readTimeout这两个得一起配置才会生效
+        connectTimeout: 5000
+        readTimeout: 5000
+logging:
+  level:
+    #指定需要监控的调用接口日志
+    com.wangx.order001.feign.UserFeign: debug
+
+
+#暴露监控端点，自动更新config
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
 env:
  version: order服务-生产环境配置-1.0版本
  
