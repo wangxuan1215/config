@@ -7,7 +7,14 @@ eureka:
     leaseExpirationDurationInSeconds: 30 #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
 
 spring:
-  #rabbit配置
+  #mysql
+  datasource:
+  url: jdbc:mysql://localhost:3306/order?characterEncoding=utf-8&useSSL=true&useUnicode=true
+  driver-class-name: com.mysql.jdbc.Driver
+  username: root
+  password: 123456
+  type: com.alibaba.druid.pool.DruidDataSource
+  #rabbit
   rabbitmq:
     host: localhost
     port: 5672
@@ -39,6 +46,5 @@ management:
 feign:
   hystrix:
     enabled: true        
-env:
-  version: order服务-生产环境配置-1.0版本
+
  
